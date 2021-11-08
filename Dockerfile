@@ -1,7 +1,7 @@
-ARG TELEGRAF_VERSION=1.19.1
+ARG TELEGRAF_VERSION=1.20.3
 FROM telegraf:${TELEGRAF_VERSION}
 
-ARG AWSCLI_VERSION=2.2.22
+ARG AWSCLI_VERSION=2.3.4
 RUN apt-get update \
   && apt-get install -y unzip \
   && cd /tmp \
