@@ -1,4 +1,4 @@
-ARG TELEGRAF_VERSION=1.20.3
+ARG TELEGRAF_VERSION=1.20.2
 FROM telegraf:${TELEGRAF_VERSION}
 
 ARG AWSCLI_VERSION=2.3.4
@@ -13,3 +13,8 @@ RUN apt-get update \
   && rm awscliv2.zip \
   && apt-get remove unzip -y \
   && rm -rf /var/lib/apt/lists/*
+
+ENV HOME /home/telegraf
+RUN mkdir $HOME \
+  && chown telegraf:telegraf $HOME \
+  && usermod -d /home/telegraf telegraf
