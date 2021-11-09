@@ -13,3 +13,8 @@ RUN apt-get update \
   && rm awscliv2.zip \
   && apt-get remove unzip -y \
   && rm -rf /var/lib/apt/lists/*
+
+ENV HOME /home/telegraf
+RUN mkdir $HOME \
+  && chown telegraf:telegraf $HOME \
+  && usermod -d /home/telegraf telegraf
